@@ -1,118 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>PunkMateo test</title>
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  <style>
-    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: black; }
-    a-scene { position: fixed; width: 100%; height: 100%; }
-    #startButton {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10;
-      padding: 1em 2em;
-      font-size: 1.2em;
-      background: white;
-      border: none;
-      border-radius: 10px;
-      display: none;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>PunkMateo Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <style>
+      html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: black; }
+      a-scene { position: fixed; width: 100%; height: 100%; }
+      #startButton {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        padding: 1em 2em;
+        font-size: 1.2em;
+        background: white;
+        border: none;
+        border-radius: 10px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
 
-<!-- Botón para iOS -->
-<button id="startButton">OPEN TO PUNK?</button>
+    <button id="startButton">OPEN TO PUNK?</button>
 
-<a-scene
-  mindar-image="imageTargetSrc: targetspunk.mind; autoStart: true"
-  vr-mode-ui="enabled: false"
-  device-orientation-permission-ui="enabled: true"
-  embedded
-  style="display: none;"
->
-  <a-assets>
-    <!-- Imágenes SIN ceros: 1.png a 6.png -->
-    <img id="img1" src="1.png" />
-    <img id="img2" src="2.png" />
-    <img id="img3" src="3.png" />
-    <img id="img4" src="4.png" />
-    <img id="img5" src="5.png" />
-    <img id="img6" src="6.png" />
+    <a-scene
+      mindar-image="imageTargetSrc: targetspunk.mind; autoStart: true"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: true"
+      embedded
+      style="display: none;"
+    >
+      <a-assets>
+        <!-- IMÁGENES -->
+        <img id="img1" src="1.png" />
+        <img id="img2" src="2.png" />
+        <img id="img3" src="3.png" />
+        <img id="img4" src="4.png" />
+        <img id="img5" src="5.png" />
+        <img id="img6" src="6.png" />
 
-    <!-- Audios SIN ceros: 1.mp3 a 6.mp3 -->
-    <audio id="aud1" src="1.mp3"></audio>
-    <audio id="aud2" src="2.mp3"></audio>
-    <audio id="aud3" src="3.mp3"></audio>
-    <audio id="aud4" src="4.mp3"></audio>
-    <audio id="aud5" src="5.mp3"></audio>
-    <audio id="aud6" src="6.mp3"></audio>
-  </a-assets>
+        <!-- AUDIOS -->
+        <audio id="aud1" src="1.mp3"></audio>
+        <audio id="aud2" src="2.mp3"></audio>
+        <audio id="aud3" src="3.mp3"></audio>
+        <audio id="aud4" src="4.mp3"></audio>
+        <audio id="aud5" src="5.mp3"></audio>
+        <audio id="aud6" src="6.mp3"></audio>
+      </a-assets>
 
-  <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-  <!-- Targets para cada flyer -->
-  <a-entity mindar-image-target="targetIndex: 0">
-    <a-image src="#img1" width="0.75" height="1" position="0 0 0.01"></a-image>
-  </a-entity>
-  <a-entity mindar-image-target="targetIndex: 1">
-    <a-image src="#img2" width="0.75" height="1" position="0 0 0.01"></a-image>
-  </a-entity>
-  <a-entity mindar-image-target="targetIndex: 2">
-    <a-image src="#img3" width="0.75" height="1" position="0 0 0.01"></a-image>
-  </a-entity>
-  <a-entity mindar-image-target="targetIndex: 3">
-    <a-image src="#img4" width="0.75" height="1" position="0 0 0.01"></a-image>
-  </a-entity>
-  <a-entity mindar-image-target="targetIndex: 4">
-    <a-image src="#img5" width="0.75" height="1" position="0 0 0.01"></a-image>
-  </a-entity>
-  <a-entity mindar-image-target="targetIndex: 5">
-    <a-image src="#img6" width="0.75" height="1" position="0 0 0.01"></a-image>
-  </a-entity>
-</a-scene>
+      <!-- ENTIDADES -->
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-image src="#img1" width="0.75" height="1" position="0 0 0.01"></a-image>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 1">
+        <a-image src="#img2" width="0.75" height="1" position="0 0 0.01"></a-image>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 2">
+        <a-image src="#img3" width="0.75" height="1" position="0 0 0.01"></a-image>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 3">
+        <a-image src="#img4" width="0.75" height="1" position="0 0 0.01"></a-image>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 4">
+        <a-image src="#img5" width="0.75" height="1" position="0 0 0.01"></a-image>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 5">
+        <a-image src="#img6" width="0.75" height="1" position="0 0 0.01"></a-image>
+      </a-entity>
+    </a-scene>
 
-<!-- Script para iOS + audio -->
-<script>
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  const scene = document.querySelector('a-scene');
-  const startBtn = document.getElementById('startButton');
+    <script>
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const scene = document.querySelector("a-scene");
+      const startBtn = document.getElementById("startButton");
 
-  const audios = Array.from({ length: 6 }, (_, i) =>
-    document.getElementById(`aud${i + 1}`)
-  );
+      const audios = [];
+      for (let i = 1; i <= 6; i++) {
+        audios.push(document.getElementById(`aud${i}`));
+      }
 
-  const targets = document.querySelectorAll('[mindar-image-target]');
+      const targets = document.querySelectorAll("[mindar-image-target]");
 
-  function setupAR() {
-    scene.style.display = 'block';
-    startBtn.style.display = 'none';
+      function setupAR() {
+        scene.style.display = "block";
+        startBtn.style.display = "none";
 
-    targets.forEach((target, index) => {
-      target.addEventListener("targetFound", () => {
-        audios[index]?.play().catch(() => {});
-      });
-      target.addEventListener("targetLost", () => {
-        audios[index]?.pause();
-        audios[index].currentTime = 0;
-      });
-    });
-  }
+        scene.addEventListener("loaded", () => {
+          const mindarComponent = scene.components["mindar-image"];
+          if (mindarComponent && mindarComponent.start) {
+            mindarComponent.start();
+          }
+        });
 
-  if (isIOS) {
-    startBtn.style.display = 'block';
-    startBtn.addEventListener('click', () => {
-      audios.forEach(a => a.play().then(() => a.pause()).catch(() => {}));
-      setupAR();
-    });
-  } else {
-    setupAR();
-  }
-</script>
+        targets.forEach((target, index) => {
+          target.addEventListener("targetFound", () => {
+            audios[index]?.play().catch(() => {});
+          });
+          target.addEventListener("targetLost", () => {
+            audios[index]?.pause();
+            audios[index].currentTime = 0;
+          });
+        });
+      }
 
-</body>
+      if (isIOS) {
+        startBtn.style.display = "block";
+        startBtn.addEventListener("click", () => {
+          // Activar contexto de audio en iOS
+          audios.forEach(a => a.play().then(() => a.pause()).catch(() => {}));
+          setupAR();
+        });
+      } else {
+        setupAR();
+      }
+    </script>
+  </body>
 </html>
