@@ -25,6 +25,7 @@
 </head>
 <body>
 
+<!-- Botón para iOS -->
 <button id="startButton">OPEN TO PUNK?</button>
 
 <a-scene
@@ -35,74 +36,54 @@
   style="display: none;"
 >
   <a-assets>
-    <!-- flyers en orden -->
-    <img id="img01" src="01.png" />
-    <img id="img02" src="02.png" />
-    <img id="img03" src="03.png" />
-    <img id="img04" src="04.png" />
-    <img id="img05" src="05.png" />
-    <img id="img06" src="06.png" />
-    <img id="img07" src="07.png" />
-    <img id="img08" src="08.png" />
-    <img id="img09" src="09.png" />
-    <img id="img10" src="10.png" />
+    <!-- Imágenes SIN ceros: 1.png a 6.png -->
+    <img id="img1" src="1.png" />
+    <img id="img2" src="2.png" />
+    <img id="img3" src="3.png" />
+    <img id="img4" src="4.png" />
+    <img id="img5" src="5.png" />
+    <img id="img6" src="6.png" />
 
-    <!-- Audios el 1 es dead kennedys,descendents,ramones,sexpistols,the clash -->
-    <audio id="aud01" src="01.mp3"></audio>
-    <audio id="aud02" src="02.mp3"></audio>
-    <audio id="aud03" src="03.mp3"></audio>
-    <audio id="aud04" src="04.mp3"></audio>
-    <audio id="aud05" src="05.mp3"></audio>
-    <audio id="aud06" src="06.mp3"></audio>
-    <audio id="aud07" src="07.mp3"></audio>
-    <audio id="aud08" src="08.mp3"></audio>
-    <audio id="aud09" src="09.mp3"></audio>
-    <audio id="aud10" src="10.mp3"></audio>
+    <!-- Audios SIN ceros: 1.mp3 a 6.mp3 -->
+    <audio id="aud1" src="1.mp3"></audio>
+    <audio id="aud2" src="2.mp3"></audio>
+    <audio id="aud3" src="3.mp3"></audio>
+    <audio id="aud4" src="4.mp3"></audio>
+    <audio id="aud5" src="5.mp3"></audio>
+    <audio id="aud6" src="6.mp3"></audio>
   </a-assets>
 
   <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-  <!aqui esta el AR de -->
- 
+  <!-- Targets para cada flyer -->
   <a-entity mindar-image-target="targetIndex: 0">
-    <a-image src="#img01" width="0.75" height="1" position="0 0 0.01"></a-image>
+    <a-image src="#img1" width="0.75" height="1" position="0 0 0.01"></a-image>
   </a-entity>
   <a-entity mindar-image-target="targetIndex: 1">
-    <a-image src="#img02" width="0.75" height="1" position="0 0 0.01"></a-image>
+    <a-image src="#img2" width="0.75" height="1" position="0 0 0.01"></a-image>
   </a-entity>
   <a-entity mindar-image-target="targetIndex: 2">
-    <a-image src="#img03" width="0.75" height="1" position="0 0 0.01"></a-image>
+    <a-image src="#img3" width="0.75" height="1" position="0 0 0.01"></a-image>
   </a-entity>
   <a-entity mindar-image-target="targetIndex: 3">
-    <a-image src="#img04" width="0.75" height="1" position="0 0 0.01"></a-image>
+    <a-image src="#img4" width="0.75" height="1" position="0 0 0.01"></a-image>
   </a-entity>
   <a-entity mindar-image-target="targetIndex: 4">
-    <a-image src="#img05" width="0.75" height="1" position="0 0 0.01"></a-image>
+    <a-image src="#img5" width="0.75" height="1" position="0 0 0.01"></a-image>
   </a-entity>
   <a-entity mindar-image-target="targetIndex: 5">
-    <a-image src="#img06" width="0.75" height="1" position="0 0 0.01"></a-image>
-  </a-entity>
-  <a-entity mindar-image-target="targetIndex: 6">
-    <a-image src="#img07" width="0.75" height="1" position="0 0 0.01"></a-image>
-  </a-entity>
-  <a-entity mindar-image-target="targetIndex: 7">
-    <a-image src="#img08" width="0.75" height="1" position="0 0 0.01"></a-image>
-  </a-entity>
-  <a-entity mindar-image-target="targetIndex: 8">
-    <a-image src="#img09" width="0.75" height="1" position="0 0 0.01"></a-image>
-  </a-entity>
-  <a-entity mindar-image-target="targetIndex: 9">
-    <a-image src="#img10" width="0.75" height="1" position="0 0 0.01"></a-image>
+    <a-image src="#img6" width="0.75" height="1" position="0 0 0.01"></a-image>
   </a-entity>
 </a-scene>
-<!este es el script para ios ojala sirva-->
+
+<!-- Script para iOS + audio -->
 <script>
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
   const scene = document.querySelector('a-scene');
   const startBtn = document.getElementById('startButton');
 
-  const audios = Array.from({ length: 10 }, (_, i) =>
-    document.getElementById(`aud${String(i + 1).padStart(2, '0')}`)
+  const audios = Array.from({ length: 6 }, (_, i) =>
+    document.getElementById(`aud${i + 1}`)
   );
 
   const targets = document.querySelectorAll('[mindar-image-target]');
@@ -135,4 +116,3 @@
 
 </body>
 </html>
-
